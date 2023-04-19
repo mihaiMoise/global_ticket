@@ -1,0 +1,13 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "assets/fonts/Ubuntu-L.ttf",
+      "sha1": "a25fe116f6ac4b6efe318e3bc8a9ce3b58824412"
+    },
+    {
+      "path": "assets/fonts/Ubuntu-R.ttf",
+      "sha1": "ef32ba2c56fcb8c6e5a8e7f57985a8be01484524"
+    }
+  ]
+}
