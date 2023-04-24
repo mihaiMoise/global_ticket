@@ -1,35 +1,44 @@
 import React from 'react';
 import { View, Image, Text, StyleSheet } from 'react-native';
+import Menu from './Menu';
 
 const Home =(props) =>{
     return (
-        <View style={{flexDirection:'column'}}>
+        <View style={styles.container}>
             <Image
                 style={styles.globologo}
                 source={require('./assets/images/logo_gauss.png')}
             />      
             <Text style={styles.title}>Welcome to GloboTicket!</Text>
             <Text style={styles.subtitles}>{props.username}</Text>
+            <Image
+                style={styles.heroimage}
+                source={require('./assets/images/boxing.jpg')}
+            />
             <View style={styles.textcontainer}>
                 <Text style={styles.content}>{introText}</Text>
+            </View>
+            <View style={styles.menu}>
+                <Menu/>
             </View>
         </View>
     );
 }
-const introText=`Bla blaspdj asijd 
-asopdiajspodij
-aosidjoaisd
-oaisdoais`;
+const introText=`Are you ready for the best events? Whether you are into 
+sports, music, or the most amazing seminars we have got you covered. Get 
+ready to purchase great tickets at the best prices. Events are in-person and 
+virtual.`;
 
 const styles =StyleSheet.create({
     container:{
         flexDirection:'column',
         alignItems:'center',
-        padding:20
+        paddingTop:20,
+        paddingBottom:20,
+        flex:1
     },
     textcontainer:{
-        textAlign:'center',
-        paddingTop: 10
+        padding: 20
     },
     globologo:{
         height:100,
@@ -44,7 +53,16 @@ const styles =StyleSheet.create({
         fontFamily:'Ubuntu-R'
     },
     content:{
-        fontFamily:'Ubuntu-L'
+        fontFamily:'Ubuntu-L',
+        fontWeight: '300'
+    },
+    heroimage:{
+        height: 170,
+        width: '100%'
+    },
+    menu:{
+        position: 'absolute',
+        bottom: 10
     }
 });
 export default Home;
