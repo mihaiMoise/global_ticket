@@ -19,7 +19,7 @@ const Menu = () => {
                 onPress={() => navigation.navigate('Contact')}
                 style={styles.button}
             >
-                <Text style={styles.buttontext}>Contact Us</Text>
+                <Text style={styles.buttontext}>Contact Uss</Text>
             </TouchableOpacity>
             
             <TouchableOpacity
