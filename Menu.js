@@ -19,7 +19,7 @@ const Menu = () => {
                 onPress={() => navigation.navigate('Contact')}
                 style={styles.button}
             >
-                <Text style={styles.buttontext}>Contact Uss</Text>
+                <Text style={styles.buttontext}>Contact Us</Text>
             </TouchableOpacity>
             
             <TouchableOpacity
@@ -27,6 +27,19 @@ const Menu = () => {
                 style={styles.button}
             >
                 <Text style={styles.buttontext}>News</Text>
+            </TouchableOpacity>
+            
+            <TouchableOpacity
+                onPress={() => navigation.navigate('WebView')}
+                style={styles.button}
+            >
+                <Text style={styles.buttontext}>Web View</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+                onPress={() => navigation.navigate('Gyro')}
+                style={styles.button}
+            >
+                <Text style={styles.buttontext}>Gyro</Text>
             </TouchableOpacity>
         </View>
     );
