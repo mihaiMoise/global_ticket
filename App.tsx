@@ -9,7 +9,6 @@ import Contact from './Contact';
 import TicketPurchase from './TicketPurchased';
 import News from './News';
 import WebViewComponent from './WebView';
-import Gyro from './Gyro';
 
 const Stack = createStackNavigator();
 
@@ -71,17 +70,8 @@ function App(): JSX.Element {
                 headerTitleStyle: {fontFamily: 'Ubuntu-Regular'},
                 headerTitle: 'Web View'
               }}
-            />
+            />            
             
-              <Stack.Screen
-                name='Gyro'
-                component={Gyro}
-                options={{
-                  headerTitleAlign: 'center',
-                  headerTitleStyle: {fontFamily: 'Ubuntu-Regular'},
-                  headerTitle: 'Gyro'
-                }}
-            />
         </Stack.Navigator>
       </NavigationContainer>
     </>

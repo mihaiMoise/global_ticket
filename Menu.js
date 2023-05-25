@@ -35,12 +35,6 @@ const Menu = () => {
             >
                 <Text style={styles.buttontext}>Web View</Text>
             </TouchableOpacity>
-            <TouchableOpacity
-                onPress={() => navigation.navigate('Gyro')}
-                style={styles.button}
-            >
-                <Text style={styles.buttontext}>Gyro</Text>
-            </TouchableOpacity>
         </View>
     );
 }
