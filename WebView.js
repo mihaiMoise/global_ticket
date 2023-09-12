@@ -9,7 +9,7 @@ const WebViewComponent = () => {
     
     const webViewRef = useRef(); 
 
-    const [{ alpha, gamma, beta }, setData] = useState({
+   /* const [{ alpha, gamma, beta }, setData] = useState({
         alpha: 0,
         gamma: 0,
         beta: 0,
@@ -21,13 +21,13 @@ const WebViewComponent = () => {
         DeviceMotion.addListener(gyroscopeData => {
             setData(gyroscopeData.rotation);
             if(gyroscopeData.rotation.alpha && gyroscopeData.rotation.beta && gyroscopeData.rotation.gamma){
-                sendMessageToSite(JSON.stringify(gyroscopeData.rotation));
+                sendMessageToSite(JSON.stringify({'rot':gyroscopeData.rotation,'ori':gyroscopeData.orientation}));
             }
         })
     );
     };
 
-    DeviceMotion.setUpdateInterval(100);
+    DeviceMotion.setUpdateInterval(200);
 
     const _unsubscribe = () => {
         subscription && subscription.remove();
@@ -41,7 +41,7 @@ const WebViewComponent = () => {
     useEffect(() => {
         _subscribe();
         return () => _unsubscribe();
-      }, []);
+      }, []);*/
     
     return (
         <>
@@ -60,13 +60,14 @@ const WebViewComponent = () => {
             <TouchableOpacity onPress={_fast} style={styles.button}>
             <Text>Fast</Text>
             </TouchableOpacity>*/}
-            <Text style={styles.text}>gamma: {gamma}</Text>
+            {/*https://vps.gauss.ro/REACT_NATIVE/COMBINA3/*/}
+            {/*http://10.0.2.2:4200/*/}
+            {/*<Text style={styles.text}>gamma: {gamma}</Text>*/}
             <WebView
-                ref={webViewRef}
                 renderToHardwareTextureAndroid={true}
                 originWhitelist={['*']}
-                source={{ uri: 'https://vps.gauss.ro/REACT_NATIVE/COMBINA3/' }}
-                style={{ marginTop: 20 }} />
+                source={{ uri: 'https://vps.gauss.ro/GAUSS_CHAT/' }}
+                style={{ marginTop: 0 }} />
         </>
       );
 }

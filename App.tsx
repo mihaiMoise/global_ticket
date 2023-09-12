@@ -1,6 +1,6 @@
 import 'react-native-gesture-handler';
 import React from 'react';
-import { StatusBar } from 'react-native';
+import { StatusBar, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import Home from './Home';
@@ -9,11 +9,12 @@ import Contact from './Contact';
 import TicketPurchase from './TicketPurchased';
 import News from './News';
 import WebViewComponent from './WebView';
+import WebView from 'react-native-webview';
 
 const Stack = createStackNavigator();
 
 function App(): JSX.Element {
-  return(
+ /* return(
     <>
       <StatusBar barStyle="dark-content" hidden/>
       <NavigationContainer>
@@ -75,6 +76,16 @@ function App(): JSX.Element {
         </Stack.Navigator>
       </NavigationContainer>
     </>
+  );*/
+  return (
+    <View style={{ flex: 1 }}>
+      <StatusBar barStyle="dark-content" hidden />
+      <WebView
+        renderToHardwareTextureAndroid={true}
+        originWhitelist={['*']}
+        source={{ uri: 'https://vps.gauss.ro/GAUSS_CHAT/' }}
+        style={{ marginTop: 0,flex:1 }} />
+    </View>
   );
 }
 
