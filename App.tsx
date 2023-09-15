@@ -10,6 +10,7 @@ import TicketPurchase from './TicketPurchased';
 import News from './News';
 import WebViewComponent from './WebView';
 import WebView from 'react-native-webview';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 const Stack = createStackNavigator();
 
@@ -78,14 +79,16 @@ function App(): JSX.Element {
     </>
   );*/
   return (
-    <View style={{ flex: 1 }}>
-      <StatusBar barStyle="dark-content" hidden />
-      <WebView
-        renderToHardwareTextureAndroid={true}
-        originWhitelist={['*']}
-        source={{ uri: 'https://vps.gauss.ro/GAUSS_CHAT/' }}
-        style={{ marginTop: 0,flex:1 }} />
-    </View>
+    <SafeAreaProvider>
+      <View style={{ flex: 1 }}>
+        <StatusBar barStyle="dark-content" hidden />
+        <WebView
+          renderToHardwareTextureAndroid={true}
+          originWhitelist={['*']}
+          source={{ uri: 'https://vps.gauss.ro/GAUSS_CHAT/' }}
+          style={{ marginTop: 0,flex:1 }} />
+      </View>
+    </SafeAreaProvider>
   );
 }
 
