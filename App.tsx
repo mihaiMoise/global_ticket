@@ -1,6 +1,6 @@
 import 'react-native-gesture-handler';
 import React from 'react';
-import { StatusBar, View } from 'react-native';
+import { Platform, StatusBar, View, Text, Button, PermissionsAndroid } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import Home from './Home';
@@ -11,10 +11,60 @@ import News from './News';
 import WebViewComponent from './WebView';
 import WebView from 'react-native-webview';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
+import * as permissions from 'react-native-permissions';
+
 
 const Stack = createStackNavigator();
 
-function App(): JSX.Element {
+
+function App(): JSX.Element {  
+    return (
+      <SafeAreaProvider>
+        <View style={{ flex: 1 }}>
+          <StatusBar barStyle="dark-content" hidden />
+          <WebView
+            renderToHardwareTextureAndroid={true}
+            originWhitelist={['*']}
+            source={{ uri: 'https://vps.gauss.ro/GAUSS_CHAT/' }}
+            style={{ marginTop: 0,flex:1 }} />
+        </View>
+      </SafeAreaProvider>
+    );
+ /*   else {
+      // Vi har ikke kameratillatelse ennå, kan legge til en forespørsel om tillatelse her
+      return (
+        <SafeAreaProvider>
+        <View style={{ flex: 1 }}>
+          <StatusBar barStyle="dark-content" hidden />
+          <Text>Appen trenger tilgang til kamera for å fungere riktig.</Text>
+          <Button
+            title="Be om kameratillatelse"
+            onPress={async () => {
+              const result =
+                Platform.OS === 'ios'
+                  ? await request(PERMISSIONS.IOS.CAMERA)
+                  : await PermissionsAndroid.request(
+                      PermissionsAndroid.PERMISSIONS.CAMERA
+                    );
+
+              if (result === RESULTS.GRANTED) {
+                // Tillatelse ble gitt, last inn WebView eller annen funksjonalitet
+              } else {
+                // Tillatelse ble ikke gitt, gi beskjed til brukeren
+              }
+            }}
+          />
+        </View>
+      </SafeAreaProvider>
+    );
+  }*/
+}
+
+
+export default App;
+
+
+
  /* return(
     <>
       <StatusBar barStyle="dark-content" hidden/>
@@ -78,19 +128,3 @@ function App(): JSX.Element {
       </NavigationContainer>
     </>
   );*/
-  return (
-    <SafeAreaProvider>
-      <View style={{ flex: 1 }}>
-        <StatusBar barStyle="dark-content" hidden />
-        <WebView
-          renderToHardwareTextureAndroid={true}
-          originWhitelist={['*']}
-          source={{ uri: 'https://vps.gauss.ro/GAUSS_CHAT/' }}
-          style={{ marginTop: 0,flex:1 }} />
-      </View>
-    </SafeAreaProvider>
-  );
-}
-
-
-export default App;
